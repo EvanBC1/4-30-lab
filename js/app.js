@@ -33,13 +33,13 @@ if(answerThree === 'yes' || answerThree === 'y') {
   console.log('The user got the wrong answer for #3');
 }
 
-var answerFour = prompt('Is the US the 3rd largest Country').toLowerCase();
+var answerFour = prompt('Is the US the 3rd largest Countries').toLowerCase();
 if(answerFour === 'no' || answerFour === 'n') {
-  alert('you are correct '+ userName +', the US is the 4th largest country');
+  alert('you are correct '+ userName +', the US is the 4th largest countries');
   console.log('The user got the correct answer for #4');
   score++;
 } else {
-  alert('you are incorrect '+ userName +', the Us is the 4th largest country');
+  alert('you are incorrect '+ userName +', the Us is the 4th largest countries');
   console.log('The user got the wrong answer for #4');
 }
 
@@ -58,54 +58,56 @@ if(answerFive === 'no' || answerFive === 'n') {
 var randomNumber = Math.floor(Math.random() * 10);
 console.log('random number ' + randomNumber);
 
-var Try = 0;
-while (Try < 4){
+var tries = 0;
+while (tries < 4){
   var answerSix = prompt('Guess the magic number that will be between 0-10');
-  if(answerSix == randomNumber) {
+  answerSix =parseInt(answerSix);
+  if(answerSix === randomNumber) {
     alert('You Got It!');
-    Try += 4;
-    console.log('Try ' + Try);
+    tries += 4;
+    console.log('tries ' + tries);
     score++;
   }else if (answerSix < randomNumber){
-    alert('No Dice! The magic number is higher. You have '+ (3 - Try) +' tries left');
-    Try += 1;
-    console.log('Try ' + Try);
+    alert('No Dice! The magic number is higher. You have '+ (3 - tries) +' tries left');
+    tries ++;
+    console.log('tries ' + tries);
   }else {
-    alert('No Dice! The magic number is lower. You have '+ (3 - Try) +' tries left');
-    Try += 1;
-    console.log('Try ' + Try);
+    alert('No Dice! The magic number is lower. You have '+ (3 - tries) +' tries left');
+    tries ++;
+    console.log('tries ' + tries);
   }
 }
 
-var correctAnswer = 0;
-Try = 0;
-while (Try < 6){
-  var answerSeven = prompt('Guess a European country I have been to.').toLowerCase();
-  console.log('User Answer for #7, try # '+ (Try + 1) + ' ' + answerSeven);
-  if(answerSeven === 'england' ||
-    answerSeven === 'germany' ||
-    answerSeven === 'spain' ||
-    answerSeven === 'netherlands' ||
-    answerSeven === 'italy' ||
-    answerSeven === 'france') {
-    alert('You Got It!');
-    Try += 6;
-    console.log('Try ' + Try);
-    score++;
+tries = 0;
+while (tries < 6){
+  var isCorrect = false;
+  var answerSeven = prompt('Guess a European countries I have been to.').toLowerCase();
+  console.log('User Answer for #7, tries # '+ (tries + 1) + ' ' + answerSeven);
 
-  }else {
-    alert('No I have not been to ' + answerSeven + ' you have ' + (5-Try) + ' tries left');
-    correctAnswer++;
-    Try += 1;
-    console.log('Try ' + Try);
+  var visitedCountries = ['england', 'germany', 'spain', 'netherlands', 'italy', 'france'];
+
+  for(var i = 0; i < visitedCountries.length; i++){
+    if (answerSeven === visitedCountries[i]){
+      alert('You Got It!');
+      tries += 6;
+      console.log('tries ' + tries);
+      score++;
+      isCorrect = true;
+      break;
+    }
+  }
+  if(!isCorrect){
+    alert('No I have not been to ' + answerSeven + ' you have ' + (5-tries) + ' tries left');
+    tries ++;
+    console.log('tries ' + tries);
   }
 }
-if(Try === 1){
+if(tries === 1){
   alert('Uh... no I havent been to any of those places. Are you even trying? I have been to England, Germany, Spain, The Netherlands, Italy, and Spain');
-  console.log('Try ' + Try);
+  console.log('tries ' + tries);
 }else {
   alert('Correct! I have been to England, Germany, Spain, The Netherlands, Italy, and Spain.');
-  console.log('Try ' + Try);
+  console.log('tries ' + tries);
 }
 
 if (score > 5){
