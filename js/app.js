@@ -3,6 +3,7 @@
 var userName = prompt('What is your name?');
 var score = 0;
 
+function questionone(){
 var answerOne = prompt('Is Africa the second largest continent?').toLowerCase();
 if(answerOne === 'yes' || answerOne === 'y') {
   alert('you are correct '+ userName +', Africa is the second largest continent');
@@ -12,7 +13,9 @@ if(answerOne === 'yes' || answerOne === 'y') {
   alert('you are incorrect '+ userName +', Africa is the second largest continent');
   console.log('The user got the wrong answer for #1');
 }
+} questionone();
 
+function two(){
 var answerTwo = prompt('Is the Amazon the longest river').toLowerCase();
 if(answerTwo === 'no' || answerTwo === 'n') {
   alert('you are correct '+ userName +', the Nile is the longest river');
@@ -22,6 +25,9 @@ if(answerTwo === 'no' || answerTwo === 'n') {
   alert('you are incorrect '+ userName +', the Nile is the longest river');
   console.log('The user got the wrong answer for #2');
 }
+} two();
+
+function three(){
 
 var answerThree = prompt('Is Mt Everest the tallest mountain?').toLowerCase();
 if(answerThree === 'yes' || answerThree === 'y') {
@@ -32,7 +38,9 @@ if(answerThree === 'yes' || answerThree === 'y') {
   alert('you are incorrect '+ userName +', Mt Everest the tallest mountain');
   console.log('The user got the wrong answer for #3');
 }
+} three();
 
+function four(){
 var answerFour = prompt('Is the US the 3rd largest Countries').toLowerCase();
 if(answerFour === 'no' || answerFour === 'n') {
   alert('you are correct '+ userName +', the US is the 4th largest countries');
@@ -42,7 +50,9 @@ if(answerFour === 'no' || answerFour === 'n') {
   alert('you are incorrect '+ userName +', the Us is the 4th largest countries');
   console.log('The user got the wrong answer for #4');
 }
+} four();
 
+function five(){
 var answerFive = prompt('Is the Atlantic the biggest ocean?').toLowerCase();
 if(answerFive === 'no' || answerFive === 'n') {
   alert('you are correct '+ userName +', the Atlantic is the second largest Ocean');
@@ -52,12 +62,13 @@ if(answerFive === 'no' || answerFive === 'n') {
   alert('you are incorrect '+ userName +', the Atlantic is the second largest Ocean');
   console.log('The user got the wrong answer for #5');
 }
-
+} five();
 
 
 var randomNumber = Math.floor(Math.random() * 10);
 console.log('random number ' + randomNumber);
 
+function six(){
 var tries = 0;
 while (tries < 4){
   var answerSix = prompt('Guess the magic number that will be between 0-10');
@@ -76,11 +87,13 @@ while (tries < 4){
     tries ++;
     console.log('tries ' + tries);
   }
+} six();
 }
 
 tries = 0;
 while (tries < 6){
   var isCorrect = false;
+  function seven(){
   var answerSeven = prompt('Guess a European countries I have been to.').toLowerCase();
   console.log('User Answer for #7, tries # '+ (tries + 1) + ' ' + answerSeven);
 
@@ -95,6 +108,7 @@ while (tries < 6){
       isCorrect = true;
       break;
     }
+  } seven();
   }
   if(!isCorrect){
     alert('No I have not been to ' + answerSeven + ' you have ' + (5-tries) + ' tries left');
